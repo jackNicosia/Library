@@ -67,6 +67,7 @@ function toggleRead(index) {
 }
 
 
+
 //This method above uses a prototype to improve efficiency
 
 

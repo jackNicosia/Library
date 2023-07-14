@@ -36,19 +36,16 @@ form {
 
 .form-row {
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-rows: min-content 1fr;
     align-items: center;
 }
 
-label {
-    justify-self: end;
-    text-align: right;
-    margin-right: 10px;
-}
 
 input[type="text"],
 input[type="checkbox"] {
-    width: 70%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -75,3 +72,10 @@ input {
 }
 
 
+.red {
+    color:red;
+}
+
+.green {
+    color:green;
+}
