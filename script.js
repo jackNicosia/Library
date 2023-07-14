@@ -19,7 +19,7 @@ function render() {
     <p> Title: ${book.title}</p>      
     <p> Author: ${book.author}</p>
     <p> Pages: ${book.pages}</p>
-    <p> Read: ${readStatus}<button class="change" data-index="${i}"> Change status</button></p>
+    <p> Read: ${readStatus}<button class="change" onclick="toggleRead(${i})"> Change status</button></p>
     <button class="remove-btn">Remove</button>
     `;
     libraryEl.appendChild(bookEl);
@@ -54,6 +54,23 @@ document.querySelector("#library").addEventListener("click", function (event){
     let index = Array.from(bookEl.parentNode.children).indexOf(bookEl);
     myLibrary.splice(index, 1);
     render();
+  }
+})
+
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+}
+
+function toggleRead(index) {
+  myLibrary[index].toggleRead();
+  render();
+}
+
+
+//This method above uses a prototype to improve efficiency
+
+
+    /*
   } else if (event.target.classList.contains("change")) {
     let index = event.target.dataset.index;
     myLibrary[index].read = !myLibrary[index].read;
@@ -61,5 +78,6 @@ document.querySelector("#library").addEventListener("click", function (event){
   }
 })
 
+*/
 
 

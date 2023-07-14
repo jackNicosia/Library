@@ -18,7 +18,7 @@ body {
     padding: 18px;
     border-radius: 15px;
     cursor: pointer;   
-    margin-top: 5%;
+    margin-top: 2%;
     width: 100px;
     justify-self: center;
 }  
@@ -31,6 +31,7 @@ form {
     grid-gap: 10px;
     justify-self: center;
     padding: 20px;
+    border-radius: 15px;
 }
 
 .form-row {
@@ -72,3 +73,5 @@ input {
 .change {
     margin-left: 10px;
 }
+
+
