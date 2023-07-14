@@ -19,7 +19,7 @@ function render() {
     <p> Title: ${book.title}</p>      
     <p> Author: ${book.author}</p>
     <p> Pages: ${book.pages}</p>
-    <p> Read: ${readStatus}</p>
+    <p> Read: ${readStatus}<button class="change" data-index="${i}"> Change status</button></p>
     <button class="remove-btn">Remove</button>
     `;
     libraryEl.appendChild(bookEl);
@@ -54,5 +54,12 @@ document.querySelector("#library").addEventListener("click", function (event){
     let index = Array.from(bookEl.parentNode.children).indexOf(bookEl);
     myLibrary.splice(index, 1);
     render();
+  } else if (event.target.classList.contains("change")) {
+    let index = event.target.dataset.index;
+    myLibrary[index].read = !myLibrary[index].read;
+    render();
   }
 })
+
+
+
