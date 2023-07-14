@@ -12,20 +12,17 @@ function render() {
   let libraryEl = document.querySelector("#library");
   libraryEl.innerHTML = "";
   for (let i = 0; i < myLibrary.length; i++) { 
-    //can add two seprate div classes for header of book card and then book info. 
-    //Then add bookEl.setAttribute ("class", "class-name"); 
     let book = myLibrary[i];
+    let readStatus = book.read ? "True" : "False"; //capitalize the first letter of true or false
     let bookEl = document.createElement("div"); 
     bookEl.innerHTML = `
     <p> Title: ${book.title}</p>      
     <p> Author: ${book.author}</p>
     <p> Pages: ${book.pages}</p>
-    <p> Read: ${book.read}</p>
-    
+    <p> Read: ${readStatus}</p>
+    <button class="remove-btn">Remove</button>
     `;
-
     libraryEl.appendChild(bookEl);
-
   }
 }
 
@@ -49,4 +46,13 @@ newBookBtn.addEventListener("click", function() {
 document.querySelector("#new-book-form").addEventListener("submit", function(event){
   event.preventDefault();
   addBookToLibrary();
+})
+
+document.querySelector("#library").addEventListener("click", function (event){
+  if (event.target.classList.contains("remove-btn")) {
+    let bookEl = event.target.parentNode;
+    let index = Array.from(bookEl.parentNode.children).indexOf(bookEl);
+    myLibrary.splice(index, 1);
+    render();
+  }
 })
